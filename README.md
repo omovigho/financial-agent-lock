@@ -18,8 +18,6 @@ This project demonstrates how an AI-powered assistant can execute sensitive busi
 - [API Overview](#api-overview)
 - [Data Model Overview](#data-model-overview)
 - [Operational Flows](#operational-flows)
-- [Troubleshooting](#troubleshooting)
-- [Known Repository Caveats](#known-repository-caveats)
 - [Additional Documentation](#additional-documentation)
 - [License](#license)
 
@@ -424,49 +422,6 @@ Primary entities defined in `backend/models.py`:
 2. Policy returns `deny`.
 3. Action not executed.
 4. Audit entry records denial reason.
-
-## Troubleshooting
-
-### Backend will not start
-
-- Confirm Python environment is activated.
-- Verify `SECRET_KEY` is set.
-- Validate `DATABASE_URL` format.
-
-### Login fails
-
-- If using Auth0, verify Auth0 env variables.
-- If using local fallback, ensure user exists and has `hashed_password`.
-- Use `backend/hash_password_cli.py` to backfill missing password hashes if needed.
-
-Example:
-
-```bash
-cd backend
-python hash_password_cli.py --yes --password 12345678
-```
-
-### Frontend cannot reach API
-
-- Confirm backend is running on `http://localhost:8000`.
-- Ensure `frontend/.env` has correct `VITE_API_URL`.
-- Restart Vite after env changes.
-
-### Port conflicts
-
-- Backend default: 8000
-- Frontend default: 3000
-
-Adjust process usage or stop conflicting services.
-
-## Known Repository Caveats
-
-- Frontend contains both active Vite/React code (`frontend/src`) and legacy/alternate Next.js-era artifacts (`frontend/app`, `.next`, related config files).
-- `frontend/Dockerfile` currently uses Next.js build/runtime assumptions (`.next`, `npm start`) while `frontend/package.json` scripts are Vite-based.
-- `backend/pyproject.toml` metadata does not currently mirror the runtime package/requirements set used by `requirements.txt`.
-- `backend/hash_password_cli.py` contains trailing unrelated code after the CLI section; review before production hardening.
-
-These do not prevent local development with the documented `python app.py` and `npm run dev` flow, but should be addressed for production readiness.
 
 ## Additional Documentation
 
