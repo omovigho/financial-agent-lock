@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# pipenv
+Pipfile.lock
+
+# Environments
+.env
+.venv
+venv/
+
+# Node
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+.turbo/
+
+# UV
+uv.lock
+pyproject.toml
