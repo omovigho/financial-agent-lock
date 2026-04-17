@@ -117,9 +117,43 @@ Core capabilities:
 - Python 3.10+
 - Node.js 18+
 - npm
+- A Google Cloud account with billing enabled
+- A Google Cloud project with the Vertex AI API enabled
+- Appropriate access to create and manage Vertex AI resources
 - Optional: Docker + Docker Compose
 
-## 2) Install dependencies
+## 2) Setting Up Google Cloud Authentication
+
+Before running the agent, you need to set up authentication with Google Cloud:
+
+1. **Install Google Cloud CLI**:
+   - Visit [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) for installation instructions for your OS
+
+2. **Initialize the Google Cloud CLI**:
+   ```bash
+   gcloud init
+   ```
+   This will guide you through logging in and selecting your project.
+
+3. **Set up Application Default Credentials**:
+   ```bash
+   gcloud auth application-default login
+   ```
+   This will open a browser window for authentication and store credentials in:
+   `~/.config/gcloud/application_default_credentials.json`
+
+4. **Verify Authentication**:
+   ```bash
+   gcloud auth list
+   gcloud config list
+   ```
+
+5. **Enable Required APIs** (if not already enabled):
+   ```bash
+   gcloud services enable aiplatform.googleapis.com
+  ```
+
+## 3) Install dependencies
 
 ### Windows (PowerShell)
 
@@ -141,7 +175,7 @@ These scripts:
 - install frontend dependencies
 - initialize the backend database
 
-## 3) Start services (local development)
+## 4) Start services (local development)
 
 ### Terminal A: backend
 
@@ -165,7 +199,7 @@ npm run dev
 
 Frontend default URL: `http://localhost:3000`
 
-## 4) Verify health
+## 5) Verify health
 
 ```bash
 curl http://localhost:8000/health
@@ -439,16 +473,6 @@ These do not prevent local development with the documented `python app.py` and `
 Project includes detailed supplemental docs:
 
 - `ARCHITECTURE.md`
-- `CODEBASE_GUIDE.md`
-- `QUICKSTART.md`
-- `DEPLOYMENT.md`
-- `AUTH0_TOKEN_VAULT_SETUP.md`
-- `GO_LIVE_CHECKLIST.md`
-- `IMPLEMENTATION_GUIDE.md`
-- `IMPLEMENTATION_SUMMARY.md`
-- `PROJECT_SUMMARY.md`
-- `QUICK_REFERENCE.md`
-- `frontend/README_NEW.md`
 
 ## License
 
