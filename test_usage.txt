@@ -1,0 +1,16 @@
+Below contain list of all the users email, with a default password of "12345678".
+Also, the "agent_lock" database can be find in the backend folder.
+
+EMAIL                       role
+dagofure1@gmail.com         (admin)
+danagofure330@gmail.com     (admin)
+ops.manager@company.com     (admin)
+john.doe@gmail.com
+jane.smith@yahoo.com
+mike.ross@pearson.com
+rachel.zane@law.com
+harvey.specter@law.com
+donna.p@legal.com
+louis.litt@litt.com
+
+NOTE: The default password for all users is "12345678"
