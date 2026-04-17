@@ -151,7 +151,7 @@ Before running the agent, you need to set up authentication with Google Cloud:
 5. **Enable Required APIs** (if not already enabled):
    ```bash
    gcloud services enable aiplatform.googleapis.com
-  ```
+
 
 ## 3) Install dependencies
 
